@@ -128,9 +128,11 @@ footer.page-footer .footer-copyright {
 .btn.tokenButton {
     border-radius: 32px;
     background: linear-gradient(135deg, #b39ddb 0%, #9575cd 100%); /* deep-purple lighten-3 --> #9575cd deep-purple lighten-2 */
+    margin: 0 16px;
 }
-.nav-wrapper .btn.tokenButton {
-    background: linear-gradient(135deg, rgba(255,255,255, .4) 0%, rgba(255,255,255, .2) 100%);
+
+.github-button-margin {
+    margin-right: 85px; /* GitHub's button is 80px */
 }
 
 .collection {
@@ -206,4 +208,8 @@ form {
 }
 #formLoadingOverlay > .preloader-wrapper {
     top: 50%;
+}
+
+#github-button-spacer {
+    margin-right: 85px; /* The GitHub button is 80px wide */
 }
