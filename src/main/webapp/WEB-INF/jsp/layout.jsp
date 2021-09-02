@@ -121,22 +121,6 @@
                                         <a class="btn tokenButton" href="${etherscanUrl}/token/0xe29797910d413281d2821d5d9a989262c8121cc2?a=${contributor.providerIdWeb3}" target="_blank">
                                             <code><span id="desktopTokenBalance">0</span> ELIMU</code>
                                         </a>
-                                        <script>
-                                            $(function() {
-                                                var contributorAddress = '${contributor.providerIdWeb3}';
-                                                getBalance(contributorAddress).then(function(result) {
-                                                    console.info('result: ' + result);
-
-                                                    var tokenBalance = result / 1000000000000000000;
-                                                    console.info('tokenBalance: ' + tokenBalance);
-
-                                                    var tokenBalanceFormatted = Intl.NumberFormat().format(tokenBalance);
-                                                    console.info('tokenBalanceFormatted ' + tokenBalanceFormatted);
-
-                                                    $('#desktopTokenBalance').html(tokenBalanceFormatted);
-                                                });
-                                            });
-                                        </script>
                                     </c:otherwise>
                                 </c:choose>
                             </div>
@@ -168,22 +152,6 @@
                                         <a class="btn tokenButton" href="${etherscanUrl}/token/0xe29797910d413281d2821d5d9a989262c8121cc2?a=${contributor.providerIdWeb3}" target="_blank">
                                             <code><span id="mobileTokenBalance">0</span> ELIMU</code>
                                         </a>
-                                        <script>
-                                            $(function() {
-                                                var contributorAddress = '${contributor.providerIdWeb3}';
-                                                getBalance(contributorAddress).then(function(result) {
-                                                    console.info('result: ' + result);
-
-                                                    var tokenBalance = result / 1000000000000000000;
-                                                    console.info('tokenBalance: ' + tokenBalance);
-
-                                                    var tokenBalanceFormatted = Intl.NumberFormat().format(tokenBalance);
-                                                    console.info('tokenBalanceFormatted ' + tokenBalanceFormatted);
-
-                                                    $('#mobileTokenBalance').html(tokenBalanceFormatted);
-                                                });
-                                            });
-                                        </script>
                                     </c:otherwise>
                                 </c:choose>
                             </li>
@@ -346,6 +314,22 @@
 
                         return balance;
                     }
+
+                    $(function () {
+                        var contributorAddress = '${contributor.providerIdWeb3}';
+                        getBalance(contributorAddress).then(function (result) {
+                            console.info('result: ' + result);
+
+                            var tokenBalance = result / 1000000000000000000;
+                            console.info('tokenBalance: ' + tokenBalance);
+
+                            var tokenBalanceFormatted = Intl.NumberFormat().format(tokenBalance);
+                            console.info('tokenBalanceFormatted ' + tokenBalanceFormatted);
+
+                            $('#mobileTokenBalance').html(tokenBalanceFormatted);
+                            $('#desktopTokenBalance').html(tokenBalanceFormatted);
+                        });
+                    });
                 </script>
             </body>
         </html>
